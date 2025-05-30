@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi corazón</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: rgb(218, 234, 241);
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+    .container {
+      text-align: center;
+    }
+    .photos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+    }
+    .photos img {
+      width: 180px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+    .heart {
+      font-size: 130px;
+      color: red;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    .buttons {
+      margin-top: 30px;
+    }
+    .buttons button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #yesBtn {
+      background-color: hotpink;
+      color: white;
+    }
+    #noBtn {
+      background-color: white;
+      color: black;
+    }
+    #playBtn {
+      position: absolute;
+      top: 20px;
+      background: rgb(196, 161, 161);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <button id="playBtn">Pica Aquí!!</button>
+  <div class="container">
+    <div class="photos">
+      <img src="AMOR1.jpg" alt="foto1">
+      <div class="heart">❤</div>
+      <img src="AMOR2.jpg" alt="foto2">
+    </div>
+    <div class="buttons">
+      <button id="yesBtn">Sí 😻</button>
+      <button id="noBtn">No 😅</button>
+    </div>
+  </div>
+
+  <audio id="music" src="Coldplay - Yellow __ Sub. Español.mp3"></audio>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const music = document.getElementById("music");
+    const playBtn = document.getElementById("playBtn");
+
+    playBtn.addEventListener("click", () => {
+      music.play();
+    });
+
+    yesBtn.addEventListener("click", () => {
+      window.location.href = "respuesta.html";
+    });
+
+    noBtn.addEventListener("mouseover", () => {
+      const i = Math.floor(Math.random() * window.innerWidth - 100);
+      const j = Math.floor(Math.random() * window.innerHeight - 50);
+      noBtn.style.position = "absolute";
+      noBtn.style.left = i + "px";
+      noBtn.style.top = j + "px";
+    });
+  </script>
+</body>
+</html>
